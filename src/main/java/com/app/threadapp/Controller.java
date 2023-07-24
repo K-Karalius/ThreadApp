@@ -111,7 +111,9 @@ public class Controller implements Initializable{
             }
             if (person != null) {
                 saveToFile(person);
-                resultData.add(person);
+                synchronized (resultData){
+                    resultData.add(person);
+                }
             } else {
                 break;
             }
